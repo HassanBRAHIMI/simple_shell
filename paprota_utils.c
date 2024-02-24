@@ -34,5 +34,15 @@ char **parse_da_shit(char *command)
 }
 void ft_excec(char **parsed)
 {
-   
+    int status;
+    t_list *exec_directories = NULL;
+    to_look_in("PATH", &exec_directories);
+    char *full_path = get_exec_path(parsed[0], &exec_directories);
+    int pid = fork();
+    if(pid == 0)
+    {
+        execve(full_path, parsed, environ);
+        exit(1);
+    }
+    waitpid(pid, &status, 0);
 }
