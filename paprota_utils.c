@@ -21,6 +21,10 @@ char **parse_da_shit(char *command)
     char *token;
     int i;
     arr = malloc(sizeof (char *) * 1024);
+    if (command[0] == '\n')
+    {
+        arr[0] = ''
+    }
     token = strtok(command, " ");
     i = 0;
     while (token)

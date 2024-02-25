@@ -17,6 +17,7 @@ int main()
     while (get_line(&command) != -1)
     {
         parsed = parse_da_shit(command);
+        // printf("%s\n", parsed[0]);
         ft_excec(parsed);
         write(1, "$ ", 2);
     } 

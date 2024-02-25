@@ -16,7 +16,9 @@ char *get_exec_path(char *file, t_list **list)
             free(path_buffer);
             path_buffer = NULL;
         }
+        // printf("%s\n", file);
         path_buffer = malloc(strlen(head->content) + strlen(file) + 2);
+        int	ft_count(char const *s1, char c);
         strcpy(path_buffer, head->content);
         strcat(path_buffer, "/");
         strcat(path_buffer, file);
@@ -28,9 +30,9 @@ char *get_exec_path(char *file, t_list **list)
         }
         head = head->next;
     }
-    // ft_lstclear(list, free);
-    // if(path_buffer)
-    //     free(path_buffer);
+    ft_lstclear(list, free);
+    if(path_buffer)
+        free(path_buffer);
     return(NULL);
 }
 
