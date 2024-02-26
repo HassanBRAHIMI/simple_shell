@@ -45,6 +45,7 @@ if (path_buffer)
 free(path_buffer);
 return (NULL);
 }
+
 /**
  * to_look_in - it looks for the directories in path
  * @str: the enviroment variable name
@@ -63,4 +64,37 @@ ft_lstadd_back(list, ft_lstnew(ft_strdup(holder)));
 holder = strtok(NULL, ":");
 }
 free(tmp);
+}
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*s;
+
+	s = malloc(count * size);
+	if (!s)
+		return (NULL);
+	ft_memset(s, 0, count * size);
+	return (s);
+}
+
+/**
+ * ft_memset - it fills a chunck of memory with 0s
+ * @b: the b
+ * @c: the c
+ * @len: the len
+ *
+ * Return: none
+*/
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*kda;
+	size_t			i;
+
+	i = 0;
+	kda = b;
+	while (i < len)
+	{
+		kda[i] = (unsigned char)c;
+		i++;
+	}
+	return (kda);
 }
