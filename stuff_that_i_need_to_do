@@ -1,6 +1,6 @@
 >> handle leaks (done)
 >> handle errors (done)
->> handle exit and env (done);
->> write my own funcs (done)
->> handle the betty coding style
+>> handle exit and env (done)
+>> write my own funcs (done but getenv)
+>> handle the betty coding style(done)
 >> if it's possible rewrite a strtok(split)
