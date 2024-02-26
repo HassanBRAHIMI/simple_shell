@@ -55,7 +55,7 @@ return (NULL);
 */
 void to_look_in(char *str, t_list **list)
 {
-char *holder = ft_strdup(getenv(str));
+char *holder = ft_strdup(get_env(str));
 char *tmp = holder;
 holder = strtok(holder, ":");
 while (holder != NULL)

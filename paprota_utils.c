@@ -95,3 +95,28 @@ exit(1);
 free(full_path);
 waitpid(pid, &status, 0);
 }
+
+/**
+ * get_env - retrieves the value of the environment variable named by name
+ * @name: the name of the environment variable
+ *
+ * Return: a pointer to the value of the environment variable,
+ * or NULL if the environment variable does not exist
+ */
+char *get_env(const char *name)
+{
+    int i = 0;
+    char *env_var;
+    int len = ft_strlen(name);
+
+    while (environ[i] != NULL)
+    {
+        env_var = ft_strchr(environ[i], '=');
+        if (env_var && ft_strncmp(environ[i], name, len) == 0)
+        {
+            return (env_var + 1);
+        }
+        i++;
+    }
+    return (NULL);
+}
