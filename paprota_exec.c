@@ -4,8 +4,8 @@
  * get_exec_path - it extracts the full path of our executable
  * @file: the command or the exec file
  * @list: the list that we will store the directories of our path
- * 
- * Return: the full path on succes or null on failure 
+ *
+ * Return: the full path on succes or null on failure
 */
 char *get_exec_path(char *file, t_list **list)
 {
@@ -20,7 +20,7 @@ while (head)
 if (access(file, X_OK | F_OK) == 0)
 {
 ft_lstclear(list, free);
-return(ft_strdup(file));
+return (ft_strdup(file));
 }
 if (path_buffer)
 {
@@ -41,20 +41,19 @@ head = head->next;
 }
 perror(file);
 ft_lstclear(list, free);
-if(path_buffer)
+if (path_buffer)
 free(path_buffer);
-return(NULL);
+return (NULL);
 }
 /**
  * to_look_in - it looks for the directories in path
  * @str: the enviroment variable name
  * @list: the list of directories
- * 
+ *
  * Return: none
 */
 void to_look_in(char *str, t_list **list)
 {
-//getenv to code later
 char *holder = ft_strdup(getenv(str));
 char *tmp = holder;
 holder = strtok(holder, ":");
