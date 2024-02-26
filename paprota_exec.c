@@ -65,6 +65,14 @@ holder = strtok(NULL, ":");
 }
 free(tmp);
 }
+
+/**
+ * ft_calloc - allocates a chunck of zroed memory
+ * @count: the count
+ * @size: the size
+ *
+ * Return: none
+*/
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*s;

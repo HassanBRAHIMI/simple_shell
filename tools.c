@@ -116,11 +116,5 @@ dest[i] = '\0';
 return (rdest);
 }
 
-/**
- * ft_calloc - allocates a chunck of zroed memory
- * @count: the count
- * @size: the size
- *
- * Return: none
-*/
+
 
