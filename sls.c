@@ -60,3 +60,17 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
+/**
+ * ft_lstlast - find the last node
+ * @lst: the list
+ * 
+ * Return: the last node
+*/
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
+}
