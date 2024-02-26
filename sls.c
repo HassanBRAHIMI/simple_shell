@@ -3,7 +3,7 @@
  * ft_lstadd_back - add a node at the end of file
  * @lst: the list
  * @new: a node
- * 
+ *
  * Return: none
 */
 void	ft_lstadd_back(t_list **lst, t_list *new)
@@ -11,11 +11,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	t_list	*tail;
 
 	if (!new || !lst)
-		return ;
+		return;
 	if (!*lst)
 	{
 		*lst = new;
-		return ;
+		return;
 	}
 	tail = ft_lstlast(*lst);
 	tail->next = new;
@@ -32,7 +32,7 @@ void	ft_lstclear(t_list **lst, void (del)(void *))
 	t_list	*temp;
 
 	if (!lst || !del)
-		return ;
+		return;
 	while (*lst)
 	{
 		temp = *lst;
@@ -46,7 +46,7 @@ void	ft_lstclear(t_list **lst, void (del)(void *))
 /**
  * ft_lstnew - add a node
  * @content: the content
- * 
+ *
  * Return: the created node
 */
 t_list	*ft_lstnew(void *content)
