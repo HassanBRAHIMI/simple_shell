@@ -1,13 +1,10 @@
 #include "paprota.h"
-/*  a forged algo for a simple shell >>>>
-                                            1- get the command line:
-                                            >> get the line using getline
-                                                - a loop that will keep running until it hits EOF  
-                                            >> tokenize it using strtok if there's a new line
-                                            2 - parse it
-                                            3 - execute
-*/
 
+/*
+ * main - entry point
+ *
+ * Return: 0
+*/
 int main()
 {
     char *command;
@@ -41,4 +38,5 @@ int main()
         free(command);
         write(1, "$ ", 2);
     }
+    return (0);
 }

@@ -1,14 +1,20 @@
 #include "paprota.h"
 
+/*
+ * get_exec_path - it extracts the full path of our executable
+ * @file: the command or the exec file
+ * @list: the list that we will store the directories of our path
+ * 
+ * Return: the full path on succes or null on failure 
+*/
 char *get_exec_path(char *file, t_list **list)
 {
-    //list is the list of directories
-    //file is the command name
-    t_list *head = *list;
-        // write(1, "ok\n", 3);
-    char *path_buffer = NULL;
+    t_list *head;
+    char *path_buffer;
     struct stat stat_box;
-    //i gotta find the absolute path for my excecutable
+    
+    head = *list;
+    path_buffer = NULL;
     while (head)
     {
         if (access(file, X_OK | F_OK) == 0)
@@ -40,7 +46,13 @@ char *get_exec_path(char *file, t_list **list)
         free(path_buffer);
     return(NULL);
 }
-
+/*
+ * to_look_in - it looks for the directories in path
+ * @str: the enviroment variable name
+ * @list: the list of directories
+ * 
+ * Return: none
+*/
 void to_look_in(char *str, t_list **list)
 {
     //getenv to code later

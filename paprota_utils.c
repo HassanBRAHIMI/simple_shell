@@ -1,5 +1,10 @@
 #include "paprota.h"
-
+/*
+ * ft_free - frees 2D arrays
+ * @splitted: the 2D array
+ * 
+ * Return: void
+*/
 void ft_free(char **splitted)
 {
 	int	c;
@@ -12,6 +17,13 @@ void ft_free(char **splitted)
 	}
 	free(splitted);
 }
+
+/*
+ * get_line - gets the command line
+ * @command: the command line itself
+ * 
+ * Return: to check the value of the command
+*/
 int get_line(char **command)
 {
     size_t size;
@@ -27,6 +39,12 @@ int get_line(char **command)
     return (indicator);
 }
 
+/*
+ * parse_da_shit - it parses the command
+ * @command: the commmand
+ * 
+ * Return: the parsed command on succes and null on failure
+*/
 char **parse_da_shit(char *command)
 {
     char **arr;
@@ -49,6 +67,12 @@ char **parse_da_shit(char *command)
     arr[i] = NULL;
     return (arr);
 }
+/*
+ * ft_excec - it executes the parsed command
+ * @parsed: the parsed command
+ * 
+ * Return: none
+*/
 void ft_excec(char **parsed)
 {
     char *full_path;
