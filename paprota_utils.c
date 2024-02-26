@@ -11,7 +11,9 @@ int c;
 
 c = 0;
 if (!splitted)
+{
     return;
+}
 while (splitted[c])
 {
 free(splitted[c]);
