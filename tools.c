@@ -99,13 +99,19 @@ return (save);
 char *ft_strcat(char *dest, const char *src)
 {
 char *rdest;
+int i;
 
 rdest = dest;
 while (*dest)
 {
 dest++;
 }
-while ((*dest++ = *src++))
-  ;
+i = 0;
+while (src[i] != '\0')
+{
+dest[i] = src[i];
+i++;
+}
+dest[i] = '\0';
 return (rdest);
 }
