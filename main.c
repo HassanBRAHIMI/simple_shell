@@ -1,6 +1,6 @@
 #include "paprota.h"
 
-/*
+/**
  * main - entry point
  *
  * Return: 0
