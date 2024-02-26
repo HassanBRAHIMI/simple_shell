@@ -105,18 +105,18 @@ waitpid(pid, &status, 0);
  */
 char *get_env(const char *name)
 {
-    int i = 0;
-    char *env_var;
-    int len = ft_strlen(name);
+int i = 0;
+char *env_var;
+int len = ft_strlen(name);
 
-    while (environ[i] != NULL)
-    {
-        env_var = ft_strchr(environ[i], '=');
-        if (env_var && ft_strncmp(environ[i], name, len) == 0)
-        {
-            return (env_var + 1);
-        }
-        i++;
-    }
-    return (NULL);
+while (environ[i] != NULL)
+{
+env_var = ft_strchr(environ[i], '=');
+if (env_var && ft_strncmp(environ[i], name, len) == 0)
+{
+return (env_var + 1);
+}
+i++;
+}
+return (NULL);
 }
