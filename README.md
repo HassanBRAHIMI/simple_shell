@@ -1,1 +1,1 @@
-# simple_shell
+a primitive command line interpreter , sumilating a super simple shell
