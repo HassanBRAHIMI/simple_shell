@@ -10,6 +10,7 @@ void ft_free(char **splitted)
 int c;
 
 c = 0;
+
 if (!splitted)
 {
 return;
