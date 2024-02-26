@@ -67,7 +67,7 @@ size_t	ft_strlen(const char *str)
 }
 
 /**
- * ft_strcmp - copyy one to one
+ * ft_strcpy - copyy one to one
  * @dest: destination
  * @src: source
  *
