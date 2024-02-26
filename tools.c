@@ -1,6 +1,6 @@
 #include "paprota.h"
 
-/*
+/**
  * ft_strcmp - compares 2 strings
  * @str1: str1
  * @str2: str2
@@ -25,7 +25,7 @@ int	ft_strcmp(const char *str1, const char *str2)
 	return (0);
 }
 
-/*
+/**
  * ft_strdup - dup a string
  * @s1: str1
  *
@@ -50,7 +50,7 @@ char	*ft_strdup(const char *s1)
 	dup[i] = '\0';
 	return (dup);
 }
-/*
+/**
  * ft_strlen - len of a string
  * @str: str
  *
@@ -66,7 +66,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-/*
+/**
  * ft_strcmp - copyy one to one
  * @str1: dest
  * @str2: src
@@ -76,13 +76,20 @@ size_t	ft_strlen(const char *str)
 char *ft_strcpy(char *dest, const char *src)
 {
 char *save;
+int i;
 
 save = dest;
-while ((*dest++ = *src++));
+i = 0;
+while (src[i] != '\0')
+{
+dest[i] = src[i];
+i++;
+}
+dest[i] = '\0';
 return (save);
 }
 
-/*
+/**
  * ft_strcat - concatenate 2 strings
  * @dest: dest
  * @src: src
