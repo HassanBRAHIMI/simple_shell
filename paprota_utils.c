@@ -7,15 +7,15 @@
 */
 void ft_free(char **splitted)
 {
- int c;
+int c;
 
- c = 0;
- while (splitted[c])
- {
- free(splitted[c]);
- c++;
- }
- free(splitted);
+c = 0;
+while (splitted[c])
+{
+free(splitted[c]);
+c++;
+}
+free(splitted);
 }
 
 /**
