@@ -11,14 +11,18 @@ char *get_exec_path(char *file, t_list **list)
     //i gotta find the absolute path for my excecutable
     while (head)
     {
+        if (access(file, X_OK | F_OK) == 0)
+        {
+            ft_lstclear(list, free);
+            return(strdup(file));
+        }
+
         if (path_buffer)
         {
             free(path_buffer);
             path_buffer = NULL;
         }
-        // printf("%s\n", file);
         path_buffer = malloc(strlen(head->content) + strlen(file) + 2);
-        int	ft_count(char const *s1, char c);
         strcpy(path_buffer, head->content);
         strcat(path_buffer, "/");
         strcat(path_buffer, file);
@@ -30,6 +34,7 @@ char *get_exec_path(char *file, t_list **list)
         }
         head = head->next;
     }
+    perror(file);
     ft_lstclear(list, free);
     if(path_buffer)
         free(path_buffer);
@@ -38,23 +43,14 @@ char *get_exec_path(char *file, t_list **list)
 
 void to_look_in(char *str, t_list **list)
 {
-    t_list *new;
-    char *env_holder = getenv(str);
     //getenv to code later
-    char *holder = strdup(env_holder);
+    char *holder = strdup(getenv(str));
+    char *tmp = holder;
     holder = strtok(holder, ":");
     while (holder != NULL)
     {
-        new = ft_lstnew(strdup(holder));
-        ft_lstadd_back(list, new);
+        ft_lstadd_back(list, ft_lstnew(strdup(holder)));
         holder = strtok(NULL, ":");
     }
-    free(holder);
+    free(tmp);
 }
-// int main()
-// {
-    // t_list *list = NULL;
-    // to_look_in("PATH", &list);
-    // char *str = get_exec_path("grep", &list);
-    // printf("%s\n", str);
-// }

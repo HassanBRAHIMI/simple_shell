@@ -12,13 +12,34 @@ int main()
 {
     char *command;
     char **parsed;
+    int i;
      // i need a function that will keep returing me the retrived command
     write(1, "$ ", 2);
     while (get_line(&command) != -1)
     {
-        parsed = parse_da_shit(command);
-        // printf("%s\n", parsed[0]);
-        ft_excec(parsed);
+        if (command[0] != 0)
+        {
+            if (strcmp(command, "exit") == 0)
+                exit(1);
+            if (strcmp(command, "env") == 0)
+            {
+                i = 0;
+                while (environ[i])
+                {
+                    write(1, environ[i], strlen(environ[i]));
+                    write(1, "\n", 1);
+                    i++;
+                }
+            }
+
+            parsed = parse_da_shit(command);
+            if (parsed)
+            {
+                ft_excec(parsed);
+                ft_free(parsed);
+            }
+        }
+        free(command);
         write(1, "$ ", 2);
-    } 
+    }
 }

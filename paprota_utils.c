@@ -1,5 +1,17 @@
 #include "paprota.h"
 
+void ft_free(char **splitted)
+{
+	int	c;
+
+	c = 0;
+	while (splitted[c])
+	{
+		free(splitted[c]);
+		c++;
+	}
+	free(splitted);
+}
 int get_line(char **command)
 {
     size_t size;
@@ -21,15 +33,16 @@ char **parse_da_shit(char *command)
     char *token;
     int i;
     arr = malloc(sizeof (char *) * 1024);
-    if (command[0] == '\n')
-    {
-        arr[0] = ''
-    }
     token = strtok(command, " ");
+    if (!token)
+    {
+        ft_free(arr);
+        return (NULL);
+    }
     i = 0;
     while (token)
     {
-        arr[i] = token;
+        arr[i] = strdup(token);
         token = strtok(NULL, " ");
         i++;
     }
@@ -38,15 +51,19 @@ char **parse_da_shit(char *command)
 }
 void ft_excec(char **parsed)
 {
+    char *full_path;
     int status;
+    int pid;
     t_list *exec_directories = NULL;
     to_look_in("PATH", &exec_directories);
-    char *full_path = get_exec_path(parsed[0], &exec_directories);
-    int pid = fork();
+    full_path = get_exec_path(parsed[0], &exec_directories);
+    pid = fork();
     if(pid == 0)
     {
         execve(full_path, parsed, environ);
         exit(1);
     }
+    // if (full_path && strcmp(full_path, parsed[0]))
+    free(full_path);
     waitpid(pid, &status, 0);
 }
