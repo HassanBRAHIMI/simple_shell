@@ -2,7 +2,7 @@
 /**
  * ft_free - frees 2D arrays
  * @splitted: the 2D array
- * 
+ *
  * Return: void
 */
 void ft_free(char **splitted)
@@ -21,7 +21,7 @@ free(splitted);
 /**
  * get_line - gets the command line
  * @command: the command line itself
- * 
+ *
  * Return: to check the value of the command
 */
 int get_line(char **command)
@@ -30,7 +30,7 @@ size_t size;
 int indicator;
 
 size = 1024;
-*command = malloc(size * sizeof(char));
+*command = malloc(size *sizeof(char));
 if (!*command)
 return (0);
 indicator = getline(command, &size, stdin);
@@ -42,7 +42,7 @@ return (indicator);
 /**
  * parse_da_shit - it parses the command
  * @command: the commmand
- * 
+ *
  * Return: the parsed command on succes and null on failure
 */
 char **parse_da_shit(char *command)
@@ -50,7 +50,7 @@ char **parse_da_shit(char *command)
 char **arr;
 char *token;
 int i;
-arr = malloc(sizeof (char *) * 1024);
+arr = malloc(sizeof(char *) * 1024);
 token = strtok(command, " ");
 if (!token)
 {
@@ -70,7 +70,7 @@ return (arr);
 /**
  * ft_excec - it executes the parsed command
  * @parsed: the parsed command
- * 
+ *
  * Return: none
 */
 void ft_excec(char **parsed)
@@ -82,7 +82,7 @@ t_list *exec_directories = NULL;
 to_look_in("PATH", &exec_directories);
 full_path = get_exec_path(parsed[0], &exec_directories);
 pid = fork();
-if(pid == 0)
+if (pid == 0)
 {
 execve(full_path, parsed, environ);
 exit(1);
