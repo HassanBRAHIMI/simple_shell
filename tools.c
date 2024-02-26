@@ -75,11 +75,11 @@ size_t	ft_strlen(const char *str)
 */
 char *ft_strcpy(char *dest, const char *src)
 {
-    char *save;
+char *save;
 
-    save = dest;
-    while((*dest++ = *src++));
-    return save;
+save = dest;
+while ((*dest++ = *src++));
+return (save);
 }
 
 /*
@@ -91,12 +91,12 @@ char *ft_strcpy(char *dest, const char *src)
 */
 char *ft_strcat(char *dest, const char *src) 
 {
-    char *rdest;
+char *rdest;
 
-    rdest = dest;
-    while (*dest)
-      dest++;
-    while ((*dest++ = *src++))
-      ;
-    return rdest;
+rdest = dest;
+while (*dest)
+  dest++;
+while ((*dest++ = *src++))
+  ;
+return (rdest);
 }
