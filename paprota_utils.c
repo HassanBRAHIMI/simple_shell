@@ -12,7 +12,7 @@ int c;
 c = 0;
 if (!splitted)
 {
-    return;
+return;
 }
 while (splitted[c])
 {
@@ -54,7 +54,7 @@ char **parse_da_shit(char *command)
 char **arr;
 char *token;
 int i;
-arr = ft_calloc(sizeof(char *) , 1024);
+arr = ft_calloc(sizeof(char *), 1024);
 token = strtok(command, " ");
 if (!token)
 {
