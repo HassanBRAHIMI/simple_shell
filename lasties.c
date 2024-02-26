@@ -35,7 +35,7 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
  * @s: the string to be scanned
  * @c: the character to be searched
  *
- * Return: a pointer to the first occurrence of the character c 
+ * Return: a pointer to the first occurrence of the character c
  * in the string s or NULL if the character is not found
  */
 char	*ft_strchr(const char *s, int c)
