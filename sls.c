@@ -63,7 +63,7 @@ t_list	*ft_lstnew(void *content)
 /**
  * ft_lstlast - find the last node
  * @lst: the list
- * 
+ *
  * Return: the last node
 */
 t_list	*ft_lstlast(t_list *lst)
