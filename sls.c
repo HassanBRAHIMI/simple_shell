@@ -1,4 +1,11 @@
 #include "paprota.h"
+/**
+ * ft_lstadd_back - add a node at the end of file
+ * @lst: the list
+ * @new: a node
+ * 
+ * Return: none
+*/
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tail;
@@ -14,15 +21,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	tail->next = new;
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	t_list	*head;
-
-	head = *lst;
-	new->next = head;
-	*lst = new;
-}
-
+/**
+ * ft_lstclear - clear the linkes list
+ * @lst: the list
+ * @del: the func to do so
+ * Return: none
+*/
 void	ft_lstclear(t_list **lst, void (del)(void *))
 {
 	t_list	*temp;
@@ -38,21 +42,13 @@ void	ft_lstclear(t_list **lst, void (del)(void *))
 	}
 	*lst = NULL;
 }
-void	ft_lstdelone(t_list *lst, void (del)(void *))
-{
-	if (!lst)
-		return ;
-	del(lst->content);
-	free(lst);
-}
-t_list	*ft_lstlast(t_list *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
+
+/**
+ * ft_lstnew - add a node
+ * @content: the content
+ * 
+ * Return: the created node
+*/
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
