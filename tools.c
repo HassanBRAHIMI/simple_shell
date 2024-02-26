@@ -96,13 +96,15 @@ return (save);
  *
  * Return: shit
 */
-char *ft_strcat(char *dest, const char *src) 
+char *ft_strcat(char *dest, const char *src)
 {
 char *rdest;
 
 rdest = dest;
 while (*dest)
-  dest++;
+{
+dest++;
+}
 while ((*dest++ = *src++))
   ;
 return (rdest);
