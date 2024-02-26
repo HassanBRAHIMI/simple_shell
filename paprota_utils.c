@@ -42,7 +42,7 @@ char **parse_da_shit(char *command)
     i = 0;
     while (token)
     {
-        arr[i] = strdup(token);
+        arr[i] = ft_strdup(token);
         token = strtok(NULL, " ");
         i++;
     }
@@ -63,7 +63,6 @@ void ft_excec(char **parsed)
         execve(full_path, parsed, environ);
         exit(1);
     }
-    // if (full_path && strcmp(full_path, parsed[0]))
     free(full_path);
     waitpid(pid, &status, 0);
 }

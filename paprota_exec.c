@@ -14,7 +14,7 @@ char *get_exec_path(char *file, t_list **list)
         if (access(file, X_OK | F_OK) == 0)
         {
             ft_lstclear(list, free);
-            return(strdup(file));
+            return(ft_strdup(file));
         }
 
         if (path_buffer)
@@ -22,11 +22,11 @@ char *get_exec_path(char *file, t_list **list)
             free(path_buffer);
             path_buffer = NULL;
         }
-        path_buffer = malloc(strlen(head->content) + strlen(file) + 2);
-        strcpy(path_buffer, head->content);
-        strcat(path_buffer, "/");
-        strcat(path_buffer, file);
-        strcat(path_buffer, "\0");
+        path_buffer = malloc(ft_strlen(head->content) + ft_strlen(file) + 2);
+        ft_strcpy(path_buffer, head->content);
+        ft_strcat(path_buffer, "/");
+        ft_strcat(path_buffer, file);
+        ft_strcat(path_buffer, "\0");
         if (stat(path_buffer, &stat_box) == 0 && access(path_buffer, X_OK) == 0)
         {
             ft_lstclear(list, free);
@@ -44,12 +44,12 @@ char *get_exec_path(char *file, t_list **list)
 void to_look_in(char *str, t_list **list)
 {
     //getenv to code later
-    char *holder = strdup(getenv(str));
+    char *holder = ft_strdup(getenv(str));
     char *tmp = holder;
     holder = strtok(holder, ":");
     while (holder != NULL)
     {
-        ft_lstadd_back(list, ft_lstnew(strdup(holder)));
+        ft_lstadd_back(list, ft_lstnew(ft_strdup(holder)));
         holder = strtok(NULL, ":");
     }
     free(tmp);

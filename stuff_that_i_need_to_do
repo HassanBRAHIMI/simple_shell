@@ -1,4 +1,4 @@
->> handle leaks (i still got one in the case of spaces)
+>> handle leaks (done)
 >> handle errors (done)
 >> handle exit and env (done);
 >> write my own funcs
