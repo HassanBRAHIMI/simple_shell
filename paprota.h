@@ -9,6 +9,13 @@
 
 extern char **environ;
 
+/**
+ * struct node - singly linked list
+ * @content: string - (malloc'ed string)
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ */
 typedef struct node
 {
 char *content;
