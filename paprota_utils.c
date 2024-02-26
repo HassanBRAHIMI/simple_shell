@@ -10,6 +10,8 @@ void ft_free(char **splitted)
 int c;
 
 c = 0;
+if (!splitted)
+    return;
 while (splitted[c])
 {
 free(splitted[c]);
@@ -50,7 +52,7 @@ char **parse_da_shit(char *command)
 char **arr;
 char *token;
 int i;
-arr = malloc(sizeof(char *) * 1024);
+arr = ft_calloc(sizeof(char *) , 1024);
 token = strtok(command, " ");
 if (!token)
 {

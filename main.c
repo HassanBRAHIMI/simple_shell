@@ -7,9 +7,9 @@
 */
 int main(void)
 {
-char *command;
-char **parsed;
-int i;
+char *command = NULL;
+char **parsed = NULL;
+int i = 0;
 write(1, "$ ", 2);
 while (get_line(&command) != -1)
 {
