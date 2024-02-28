@@ -31,13 +31,13 @@ i++;
 }
 }
 parsed = parse_da_shit(command);
+free(command);
 if (parsed)
 {
 ft_excec(parsed);
 ft_free(parsed);
 }
 }
-free(command);
 write(1, "$ ", 2);
 }
 return (0);

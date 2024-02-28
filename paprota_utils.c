@@ -90,6 +90,9 @@ pid = fork();
 if (pid == 0)
 {
 execve(full_path, parsed, environ);
+free(full_path);
+ft_free(parsed);
+ft_lstclear(&exec_directories, free);
 exit(1);
 }
 free(full_path);
