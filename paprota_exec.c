@@ -14,7 +14,7 @@ char *path_buffer;
 struct stat stat_box;
 
 head = *list;
-path_buffer = NULL;
+path_buffer = "/usr/bin";
 while (head)
 {
 if (access(file, X_OK | F_OK) == 0)
