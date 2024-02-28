@@ -16,7 +16,10 @@ while (get_line(&command) != -1)
 if (command[0] != 0)
 {
 if (ft_strcmp(command, "exit") == 0)
-exit(1);
+{
+free(command);
+exit(-1);
+}
 if (ft_strcmp(command, "env") == 0)
 {
 i = 0;
