@@ -13,6 +13,7 @@ t_list *head;
 char *path_buffer;
 struct stat stat_box;
 
+printf("file: [%s]\n", file);
 head = *list;
 path_buffer = NULL;
 while (head)

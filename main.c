@@ -5,7 +5,7 @@
  *
  * Return: 0
 */
-int main(void)
+int main()
 {
 char *command = NULL;
 int write_res;
@@ -20,7 +20,7 @@ if (write_res == -1) {
 }
 while (get_line(&command) != -1)
 {
-if (command[0] != 0)
+if (command[0] != '\0')
 {
 if (ft_strcmp(command, "exit") == 0)
 {
