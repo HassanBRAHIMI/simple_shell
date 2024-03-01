@@ -39,6 +39,8 @@ size = 1024;
 if (!*command)
 return (0);
 indicator = getline(command, &size, stdin);
+if (indicator < 0)
+    free(*command);
 if (indicator > 0 && (*command)[indicator - 1] == '\n')
 (*command)[indicator - 1] = '\0';
 return (indicator);
